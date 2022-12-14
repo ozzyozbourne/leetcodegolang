@@ -15,16 +15,13 @@ func main() {
 			Next: &ListNode{
 				Val: 30,
 				Next: &ListNode{
-					Val: 40,
-					Next: &ListNode{
-						Val:  50,
-						Next: nil,
-					},
+					Val:  40,
+					Next: nil,
 				},
 			},
 		},
 	}
-	printListNode(reverseKGroup(&a, 3))
+	printListNode(reverseAlternatingKElementsSublist(&a, 2))
 }
 
 func printListNode(q *ListNode) {
@@ -34,7 +31,7 @@ func printListNode(q *ListNode) {
 	}
 }
 
-func reverseKGroup(head *ListNode, k int) *ListNode {
+func reverseAlternatingKElementsSublist(head *ListNode, k int) *ListNode {
 	if k <= 1 || head == nil {
 		return head
 	}
