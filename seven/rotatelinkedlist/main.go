@@ -21,7 +21,7 @@ func main() {
 			},
 		},
 	}
-	printListNode(reverseAlternatingKElementsSublist(&a, 2))
+	printListNode(rotateLinkedList(&a, 2))
 }
 
 func printListNode(q *ListNode) {
@@ -31,7 +31,7 @@ func printListNode(q *ListNode) {
 	}
 }
 
-func reverseAlternatingKElementsSublist(head *ListNode, k int) *ListNode {
+func rotateLinkedList(head *ListNode, k int) *ListNode {
 
 	return head
 }

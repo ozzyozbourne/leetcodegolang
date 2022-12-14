@@ -9,15 +9,15 @@ type ListNode struct {
 
 func main() {
 	a := ListNode{
-		Val: 10,
+		Val: 1,
 		Next: &ListNode{
-			Val: 20,
+			Val: 2,
 			Next: &ListNode{
-				Val: 30,
+				Val: 3,
 				Next: &ListNode{
-					Val: 40,
+					Val: 4,
 					Next: &ListNode{
-						Val:  50,
+						Val:  5,
 						Next: nil,
 					},
 				},
@@ -55,7 +55,7 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 		stopLeft := previous
 		stopRight := current
 
-		for i := 0; current != nil && i < k; i++ {
+		for i := 0; i < k; i++ {
 			next := current.Next
 			current.Next = previous
 			previous = current
