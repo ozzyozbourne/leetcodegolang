@@ -41,7 +41,7 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	leftStop := previous
 	rightStop := current
 
-	for i := 0; current != nil && i < left-right+1; i++ {
+	for i := 0; current != nil && i < right-left+1; i++ {
 		next := current.Next
 		current.Next = previous
 		previous = current
