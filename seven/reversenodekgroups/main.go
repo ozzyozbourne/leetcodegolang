@@ -15,8 +15,11 @@ func main() {
 			Next: &ListNode{
 				Val: 30,
 				Next: &ListNode{
-					Val:  40,
-					Next: nil,
+					Val: 40,
+					Next: &ListNode{
+						Val:  50,
+						Next: nil,
+					},
 				},
 			},
 		},
@@ -32,5 +35,36 @@ func printListNode(q *ListNode) {
 }
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	return nil
+	if k <= 1 || head == nil {
+		return head
+	}
+
+	current := head
+	var previous *ListNode
+
+	for {
+		stopLeft := previous
+		stopRight := current
+
+		for i := 0; current != nil && i < k; i++ {
+			next := current.Next
+			current.Next = previous
+			previous = current
+			current = next
+		}
+
+		if stopLeft != nil {
+			stopLeft.Next = previous
+		} else {
+			head = previous
+		}
+
+		stopRight.Next = current
+
+		if current == nil {
+			break
+		}
+		previous = stopRight
+	}
+	return head
 }
