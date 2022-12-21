@@ -32,6 +32,29 @@ func printListNode(q *ListNode) {
 }
 
 func rotateLinkedList(head *ListNode, k int) *ListNode {
+	if head == nil || head.Next == nil || k < 0 {
+		return head
+	}
+
+	lastNode := head
+	count := 1
+
+	for lastNode.Next != nil {
+		count++
+		lastNode = lastNode.Next
+	}
+
+	lastNode.Next = head
+	k %= count
+	counter := count - k
+	breaker := head
+
+	for i := 0; i < counter-1; i++ {
+		breaker = breaker.Next
+	}
+
+	head = breaker.Next
+	breaker.Next = nil
 
 	return head
 }
