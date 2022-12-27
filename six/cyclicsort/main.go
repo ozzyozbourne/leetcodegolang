@@ -5,17 +5,24 @@ import "fmt"
 func main() {
 	a := []int{3, 1, 5, 4, 2}
 	sort(a)
+	for _, v := range a {
+		fmt.Println(v)
+	}
 }
 
 func sort(a []int) {
-	for i, v := range a {
-		if a[v-1] != v {
-			swap(a, i, v-1)
+	i := 0
+	l := len(a)
+	for i < l {
+		if a[i] == l {
+			i++
+			continue
 		}
-	}
-
-	for _, v := range a {
-		fmt.Println(v)
+		if a[i] != i {
+			swap(a, i, a[i])
+		} else {
+			i++
+		}
 	}
 }
 
