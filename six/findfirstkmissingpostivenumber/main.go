@@ -10,10 +10,10 @@ func main() {
 }
 
 func findNumbers(a []int, k int) []int {
-	i := len(a)
+	i := 0
 	l := len(a)
 	for i < l {
-		if a[i] < 0 && a[i] > l && a[i] != a[a[i]-1] {
+		if a[i] > 0 && a[i] <= l && a[i] != a[a[i]-1] {
 			t := a[i]
 			a[i] = a[t-1]
 			a[t-1] = t
@@ -22,17 +22,17 @@ func findNumbers(a []int, k int) []int {
 		}
 	}
 	var r []int
-	var m map[int]struct{}
+	m := map[int]struct{}{}
 	for i, v := range a {
 		if v != i+1 {
 			r = append(r, i+1)
 			m[v] = struct{}{}
 		}
 	}
-	for i = 1; i < len(r); i++ {
+	for i = 1; len(r) < k; i++ {
 		cn := i + l
 		_, t := m[cn]
-		if t {
+		if !t {
 			r = append(r, cn)
 		}
 	}
