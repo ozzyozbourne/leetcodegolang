@@ -1,23 +1,23 @@
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	fmt.Println(circularArrayLoop([]int{2, -1, 1, 2, 2}))
 }
 
 func circularArrayLoop(nums []int) bool {
 	for i := 0; i < len(nums); i++ {
-		fw := nums[i] > 0
-		var s int
-		var f int
+		fw := nums[i] >= 0
+		s := i
+		f := i
 		for {
-			s = findNextIndex(nums, fw, i)
-			f = findNextIndex(nums, fw, i)
+			s = findNextIndex(nums, fw, s)
+			f = findNextIndex(nums, fw, f)
 			if f != -1 {
-				f = findNextIndex(nums, fw, i)
-
+				f = findNextIndex(nums, fw, f)
 			}
-
-			if s == -1 && f == -1 {
+			if s == -1 || f == -1 || s == f {
 				break
 			}
 		}
@@ -38,8 +38,8 @@ func findNextIndex(a []int, f bool, ci int) int {
 		ni += len(a)
 	}
 	if ni == ci {
-		return -1
+		ni = -1
 	}
 
-	return ci
+	return ni
 }
