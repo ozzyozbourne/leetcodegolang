@@ -9,31 +9,17 @@ type TreeNode struct {
 }
 
 func main() {
-	//a := TreeNode{
-	//	Val: 1,
-	//	Left: &TreeNode{
-	//		Val:   2,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//	Right: nil,
-	//}
-	//r := pathSum(&a, 3)
-	//fmt.Println(r)
-	a := make([]int, 0)
-	tester(a, 1)
-	fmt.Println(a)
-}
-
-func tester(a []int, k int) {
-	if k >= 3 {
-		return
-	} else {
-
-		a = append(a, k)
+	a := TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val:   2,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: nil,
 	}
-	k++
-	tester(a, k)
+	r := pathSum(&a, 3)
+	fmt.Println(r)
 }
 
 func pathSum(root *TreeNode, targetSum int) [][]int {
