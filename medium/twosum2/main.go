@@ -19,3 +19,18 @@ func twoSum(numbers []int, target int) []int {
 	}
 	return []int{}
 }
+
+func twoSumDiff(numbers []int, target int) []int {
+	var l, s int
+	r := len(numbers) - 1
+	s = numbers[l] + numbers[r]
+	for s != target {
+		if s > target {
+			r--
+		} else {
+			l++
+		}
+		s = numbers[l] + numbers[r]
+	}
+	return []int{l + 1, r + 1}
+}
