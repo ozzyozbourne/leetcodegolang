@@ -1,17 +1,19 @@
 package main
 
-import (
-	"fmt"
-	"runtime"
-)
+import "fmt"
 
 func main() {
-	fmt.Println(runtime.GOOS)
-	fmt.Println(runtime.GOARCH)
-	fmt.Println(runtime.NumCPU())
-	fmt.Println(runtime.NumGoroutine())
-	mp := make(map[int]string)
-	s, t := mp[75]
-	fmt.Println(s)
-	fmt.Println(t)
+
+	st := make([]string, 4, 5)
+	st[0] = "qwd"
+	st[1] = "sfdv"
+	st[2] = "sd"
+	st[3] = "weg"
+
+	sd := append(st, "kdsmc")
+	st[0] = "skdnv"
+
+	fmt.Println(sd)
+	fmt.Println(st)
+
 }
